@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
         .nav-justified .active {
             border-bottom: 5px solid #0029ff;
@@ -64,6 +66,7 @@
             function generateOrderHtml(order) {
                 return `
                     <div class="container">
+
                         <div class="row" style="display: flex;justify-content: space-between;align-items: baseline;">
                             <div style="width: 50%;">
                                         <h3>Vodus Store</h3>
@@ -73,33 +76,53 @@
                                 <h4>Order Date <span class="orderDate">${formatDate(order.orderDate)}</span></h4>
                             </div>
                         </div>
-                        <div class="row" style="display: flex;">
-                            <div style="width: 30%;">
-                                <img class="orderImage" src="${order.image}" alt="${order.name}">
+                        <div class="row" >
+                            <div class="col-sm-6 col-md-3 col-lg-3">
+                                <div class="card" style="border:white;">
+                                 <div class="card-body">
+                                         <img class="orderImage" src="${order.image}" alt="${order.name}">
+                                   </div>                 
+                                 </div> 
                             </div>
-                            <div style="width: 30%;">
-                                <div>
-                                    <h3 class="orderName">${order.name}</h3>
-                                </div>
-                                <div>
-                                    <div style="display: flex; margin-top: 20px;">
-                                        <div class="dropdown">
-                                            <button style="background: #e6e5e5;" class="btn btn-light dropdown-toggle " type="button" data-toggle="dropdown" disabled>RM 5 Discount (50V Points)
-                                        </div>
-                                        <h3 style="margin-left: 20px;border: 1px solid #a7a1a1;border-radius: 10px;padding: 8px;font-size: 20px;font-weight: 600; margin-top: -3px;margin-bottom: 0px;">x2</h3>
-                                    </div>
-                                    <div style="margin-top: 10px;">
-                                                <h4 style="color: #cec9c9;">Variation: BLACK XL</h4>
-                                    </div>
-                                </div>
+                            <div class="col-sm-6 col-md-3 col-lg-3">
+                                         <div class="card" style="border:white;">
+                                            <div class="card-header">
+                                                   <h3 class="orderName">${order.name}</h3>
+                                             </div>
+                                         <div class="card-body">
+                                          <div class="row">
+                                              <div class="col">
+                                                 <div class="dropdown">
+                                                      <button style="background: #e6e5e5; padding:11px;font-size:10px;margin-left:0px" class="btn btn-light dropdown-toggle " type="button" data-toggle="dropdown" disabled>RM 5 Discount (50V Points)
+                                                 </div>
+                                              </div>
+                                              <div class="col">
+                                                  <h3 style="border: 1px solid #a7a1a1;border-radius: 10px;padding: 8px;font-size: 20px;font-weight: 600; width:fit-content;float:right ">x2</h3>
+                                              </div>
+                                          </div>
+                                         
+                                         <div style="margin-top: 10px;">
+                                              <h4 style="color: #cec9c9;">Variation: BLACK XL</h4>
+                                         </div>
+                                     </div>                                        
+                                  </div>
                             </div>
-                            <div style="width: 20%;display: flex;justify-content: center;align-items: center;">
-                                <h4 class="orderPrice" style="color: #b6b0b0;text-decoration: line-through;font-weight: 500;margin-right: 10px;">RM ${order.price.toFixed(2)}</h4>
-                                <h4 class="orderDiscountedPrice" style="font-weight: 500;">RM ${order.discountedPrice.toFixed(2)}</h4>
-                            </div>
-                            <div style="display: flex;width: 20%;justify-content: flex-end;align-items: center;">
-                                        <span class="badge rounded-pill bg-warning text-dark" style="background: coral;padding: 6px 11px;font-size: 20px;font-weight: 500;">Pending Seller</span>
-                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-3" >
+                                       <div class="card" style="border:white;" >
+                                          <div class="card-body" style="margin-top:10px;align-item:center">
+                                              <h4 class="orderPrice" style="color: #b6b0b0;text-decoration: line-through;font-weight: 500;margin-left: 20px; font-size:24px;">RM ${order.price.toFixed(2)}</h4>
+                                                      <h4 class="orderDiscountedPrice" style="font-weight: 500; font-size:24px;margin-left: 20px;">RM ${order.discountedPrice.toFixed(2)}</h4>
+                                         </div>
+                                      </div>
+                             </div>
+                             <div class="col-sm-6 col-md-3 col-lg-3">
+                                       <div class="card" style="border:white;" >
+                                                         <div class="card-body" style="margin-top:10px">
+                                                              <span class="badge rounded-pill bg-warning text-dark" style="background: coral;padding: 6px 11px;font-size: 20px;font-weight: 500;margin-left: 20px;">Pending Seller</span>
+                                                 </div>
+                                     </div>
+                             </div>
+                          
                         </div>
                     </div>
                     `;

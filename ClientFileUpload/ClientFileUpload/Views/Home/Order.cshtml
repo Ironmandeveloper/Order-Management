@@ -20,17 +20,26 @@
                 // Loop through the orders and create card elements
                 $.each(data, function (index, order) {
                     var cardHtml = `
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <img src="${order.Image}" class="card-img-top" alt="${order.Name}">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">${order.Name}</h5>
-                                                    <p class="card-text">Order Date: ${order.OrderDate}</p>
-                                                    <p class="card-text">Price: $${order.Price}</p>
-                                                    <p class="card-text">Discounted Price: $${order.DiscountedPrice}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                               <div class="card">
+                                 <div class="card-body">
+                                    <img src="${order.Image}" class="card-img-top" alt="${order.Name}">
+                                 </div>
+                               </div>
+                            </div>
+                            <div class="col-sm-3">
+                                  <div class="card-body">
+                                      <h5 class="card-title">${order.Name}</h5>
+                                       <p class="card-text">Order Date: ${order.OrderDate}</p>
+                                       <p class="card-text">Price: $${order.Price}</p>
+                                       <p class="card-text">Discounted Price: $${order.DiscountedPrice}</p>
+                                   </div>
+                            </div>
+                       </div>
+                    </div>
+                                
                                     `;
                     $('#cardGrid').append(cardHtml);
                 });
