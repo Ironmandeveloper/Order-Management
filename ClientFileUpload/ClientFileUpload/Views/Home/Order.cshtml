@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Cards</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row" id="cardGrid"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Load JSON data
+            $.getJSON('/api/orders', function (data) {
+                // Loop through the orders and create card elements
+                $.each(data, function (index, order) {
+                    var cardHtml = `
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card">
+                                                <img src="${order.Image}" class="card-img-top" alt="${order.Name}">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${order.Name}</h5>
+                                                    <p class="card-text">Order Date: ${order.OrderDate}</p>
+                                                    <p class="card-text">Price: $${order.Price}</p>
+                                                    <p class="card-text">Discounted Price: $${order.DiscountedPrice}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                    $('#cardGrid').append(cardHtml);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

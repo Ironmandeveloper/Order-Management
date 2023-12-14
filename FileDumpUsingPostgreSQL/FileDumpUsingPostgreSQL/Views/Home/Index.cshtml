@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@* @model IEnumerable<FileUploadModel> *@
+<h5>Select the checkbox to save your choice and click on Load File link</h5>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <label for="fileSource">Choose the data source to save:</label>
+    <checkbox id="fileSource"></checkbox>
+</form>

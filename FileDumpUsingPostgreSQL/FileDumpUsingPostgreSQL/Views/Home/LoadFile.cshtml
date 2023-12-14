@@ -1,0 +1,56 @@
+﻿@model List<FileUploadModel>
+
+<h2>File Data</h2>
+
+<div>
+    <form asp-controller="Home" asp-action="LoadFile" method="post">
+        <label for="fileSource">Choose the data source:</label>
+        <select name="fileSource" id="fileSource">
+            <option value="json">Upload from JSON File</option>
+            <option value="database">Upload from PostgreSQL Database</option>
+        </select>
+        
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" id="startDate">
+
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" id="endDate">
+
+        <label for="searchText">Search Text:</label>
+        <input type="text" name="searchText" id="searchText">
+        <button type="submit">Load Data</button>
+    </form>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Order Date</th>
+                <th>Discounted Price</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Image</td>
+                    <td>@item.Name</td>
+                    <td>@item.OrderDate.Date.ToShortDateString()</td>
+                    <td>@item.DiscountedPrice</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No data to display.</p>
+}

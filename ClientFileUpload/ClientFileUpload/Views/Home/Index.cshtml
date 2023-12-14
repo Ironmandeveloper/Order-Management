@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .nav-justified .active {
+            border-bottom: 5px solid #0029ff;
+        }
+
+        .nav-justified > .active {
+            border-bottom: 5px solid #0029ff;
+        }
+
+            .nav-justified > .active > a {
+                background: #c3c3d1;
+                color: #000;
+                font-size: 20px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>My Orders</h2>
+    </div>
+
+    <div class="tab-content">
+        <div id="home" ></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            
+            var sampleData;
+            $.getJSON('/Home/GetOrders', function (data) {
+                sampleData = data;
+                console.log('sad');
+                console.log(sampleData);
+                // Populate "To Pay" tab with sample data
+                $.each(sampleData, function (index, order) {
+                    var orderHtml = generateOrderHtml(order);
+                    $('#home').append(orderHtml);
+                });
+            });
+
+
+            // Function to format date
+            function formatDate(dateString) {
+                var orderDate = new Date(dateString);
+                return orderDate.toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric"
+                });
+            }
+
+            // Function to generate HTML for an order item
+            function generateOrderHtml(order) {
+                return `
+                    <div class="container">
+                        <div class="row" style="display: flex;justify-content: space-between;align-items: baseline;">
+                            <div style="width: 50%;">
+                                        <h3>Vodus Store</h3>
+                                <i></i>
+                            </div>
+                            <div style="width: 50%;display:flex; justify-content: flex-end;">
+                                <h4>Order Date <span class="orderDate">${formatDate(order.orderDate)}</span></h4>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex;">
+                            <div style="width: 30%;">
+                                <img class="orderImage" src="${order.image}" alt="${order.name}">
+                            </div>
+                            <div style="width: 30%;">
+                                <div>
+                                    <h3 class="orderName">${order.name}</h3>
+                                </div>
+                                <div>
+                                    <div style="display: flex; margin-top: 20px;">
+                                        <div class="dropdown">
+                                            <button style="background: #e6e5e5;" class="btn btn-light dropdown-toggle " type="button" data-toggle="dropdown" disabled>RM 5 Discount (50V Points)
+                                        </div>
+                                        <h3 style="margin-left: 20px;border: 1px solid #a7a1a1;border-radius: 10px;padding: 8px;font-size: 20px;font-weight: 600; margin-top: -3px;margin-bottom: 0px;">x2</h3>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                                <h4 style="color: #cec9c9;">Variation: BLACK XL</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width: 20%;display: flex;justify-content: center;align-items: center;">
+                                <h4 class="orderPrice" style="color: #b6b0b0;text-decoration: line-through;font-weight: 500;margin-right: 10px;">RM ${order.price.toFixed(2)}</h4>
+                                <h4 class="orderDiscountedPrice" style="font-weight: 500;">RM ${order.discountedPrice.toFixed(2)}</h4>
+                            </div>
+                            <div style="display: flex;width: 20%;justify-content: flex-end;align-items: center;">
+                                        <span class="badge rounded-pill bg-warning text-dark" style="background: coral;padding: 6px 11px;font-size: 20px;font-weight: 500;">Pending Seller</span>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+            } 
+            console.log(sampleData);
+            debugger;
+            
+        });
+    </script>
+
+</body>
+</html>
