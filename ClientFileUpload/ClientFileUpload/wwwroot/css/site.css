@@ -16,3 +16,123 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Style the topnav and the header section */
+.topnav {
+    overflow: hidden;
+}
+
+    .topnav h2 {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+    }
+
+    .topnav .search-container {
+        float: right;
+    }
+
+    .topnav input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: 1px solid black;
+    }
+
+    .topnav .search-container button {
+        float: left;
+        padding: 7px 15px;
+        margin-top: 8px;
+        margin-right: 0px;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .topnav .search-container button:hover {
+           /* background: #ccc;*/
+        }
+
+@media screen and (max-width: 600px) {
+    .topnav .search-container {
+        float: none;
+    }
+
+        .topnav h2, .topnav input[type=text], .topnav .search-container button {
+            float: none;
+            text-align: left;
+          /*  width: 100%;*/
+            margin: 0px;
+            padding: 7px;
+        }
+
+    .topnav input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
+@media screen and (max-width: 750px) {
+
+    .topnav .search-container {
+        width: 100%;
+    }
+    .topnav input[type=text] {
+        width: 85%;
+    }
+    .topnav .search-container button {
+        width: 10%;
+    }
+}
+/* Style the tab link  */
+.tablink {
+    background-color: white;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 15px;
+    width: 25%;
+    border-bottom: solid;
+    border-bottom-color: orchid
+}
+
+    .tablink:hover {
+        background-color: #DCDCDC;
+        color: orchid
+    }
+
+/* Style the tab content  */
+
+.tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+    
+}
+
+#Home {
+    background-color: #DCDCDC;
+}
+
+#News {
+    background-color: #DCDCDC;
+}
+
+#Contact {
+    background-color: #DCDCDC;
+}
+
+#About {
+    background-color: #DCDCDC;
+}
+
+.
+
+
+

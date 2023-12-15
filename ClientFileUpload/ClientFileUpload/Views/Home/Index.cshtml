@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .nav-justified .active {
             border-bottom: 5px solid #0029ff;
@@ -23,17 +24,36 @@
                 color: #000;
                 font-size: 20px;
             }
+
+      
     </style>
 </head>
 
 <body>
+   @*  Header Section *@
+    <div class="topnav">
+        <h2 class="active">My Orders</h2>
+        <div class="search-container">
+            <form>
+                <div>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search.." name="search">
 
-    <div class="container">
-        <h2>My Orders</h2>
+                </div>             
+            </form>
+        </div>
     </div>
 
+
+    @* Body Section*@
     <div class="tab-content">
-        <div id="home" ></div>
+        <button class="tablink" onclick="">To Pay</button>
+        <button class="tablink" onclick="openPage('home', this, '#DCDCDC')" id="defaultOpen">Received</button>
+        <button class="tablink" onclick="">Completed</button>
+        <button class="tablink" onclick="">Refund</button>
+           
+            <div id="home" class="tabcontent">
+            </div>
     </div>
 
     <script>
@@ -68,11 +88,11 @@
                     <div class="container">
 
                         <div class="row" style="display: flex;justify-content: space-between;align-items: baseline;">
-                            <div style="width: 50%;">
-                                        <h3>Vodus Store</h3>
+                            <div style="width: 60%;">
+                                                <h3>Vodus Store<i class="fa-solid fa-angle-right" style="margin-left:5px"></i></h3>
                                 <i></i>
                             </div>
-                            <div style="width: 50%;display:flex; justify-content: flex-end;">
+                            <div style="width: 40%;display:flex; justify-content: flex-end;">
                                 <h4>Order Date <span class="orderDate">${formatDate(order.orderDate)}</span></h4>
                             </div>
                         </div>
@@ -80,7 +100,7 @@
                             <div class="col-sm-6 col-md-3 col-lg-3">
                                 <div class="card" style="border:white;">
                                  <div class="card-body">
-                                         <img class="orderImage" src="${order.image}" alt="${order.name}">
+                                         <img class="orderImage" style="width:100%" src="${order.image}" alt="${order.name}">
                                    </div>                 
                                  </div> 
                             </div>
@@ -118,7 +138,7 @@
                              <div class="col-sm-6 col-md-3 col-lg-3">
                                        <div class="card" style="border:white;" >
                                                          <div class="card-body" style="margin-top:10px">
-                                                              <span class="badge rounded-pill bg-warning text-dark" style="background: coral;padding: 6px 11px;font-size: 20px;font-weight: 500;margin-left: 20px;">Pending Seller</span>
+                                                                      <span class="badge rounded-pill bg-warning text-dark" style="background: coral;padding: 6px 11px;font-size: 20px;font-weight: 500;margin-left: 20px;">Pending Seller<i class="fa-solid fa-angle-right" style="margin-left:5px"></i></span>
                                                  </div>
                                      </div>
                              </div>
@@ -131,6 +151,22 @@
             debugger;
             
         });
+        //function to show content of each tabs when click on
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
     </script>
 
 </body>

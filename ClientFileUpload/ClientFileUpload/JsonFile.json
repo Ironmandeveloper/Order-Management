@@ -4,16 +4,16 @@
     "Image": "https://vouponlive.blob.core.windows.net/products/216/images/small_01_6cd6079e-5bf5-4965-b488-f31e5e3624c3.jpeg",
     "Name": "Clarifying Graphene Sheet Mask",
     "OrderDate": "2023-11-07T00:00:00",
-    "Price": 17.00,
-    "DiscountedPrice": 20.00
+    "Price": 20.00,
+    "DiscountedPrice": 17.00
   },
   {
     "Id": 2,
     "Image": "https://vouponlive.blob.core.windows.net/products/558/images/small_0_0070fab8-5ea5-44fa-a3d0-3a9926f3ced1.jpeg",
     "Name": "Nikon Camera",
     "OrderDate": "2023-11-06T00:00:00",
-    "Price": 15.00,
-    "DiscountedPrice": 18.00
+    "Price": 18.00,
+    "DiscountedPrice": 15.00
   },
   {
     "Id": 3,
@@ -28,8 +28,8 @@
     "Image": "https://vouponlive.blob.core.windows.net/products/571/images/small_01_37a298ad-3af7-4055-8b5b-b27cdae6e744.jpeg",
     "Name": "VivaDiag™ SARS-CoV-2 Ag Rapid Test (Professional Use) (25 kits/box)",
     "OrderDate": "2023-11-04T00:00:00",
-    "Price": 50.00,
-    "DiscountedPrice": 52.00
+    "Price": 52.00,
+    "DiscountedPrice": 50.00
   },
   {
     "Id": 5,
@@ -44,15 +44,15 @@
     "Image": "https://vouponlive.blob.core.windows.net/products/588/images/small_01_4d8aa62c-17b7-4480-967c-aef10f59ad84.jpeg",
     "Name": "Pes Masak Lemak Cili Api",
     "OrderDate": "2023-11-06T00:00:00",
-    "Price": 80.00,
-    "DiscountedPrice": 84.00
+    "Price": 84.00,
+    "DiscountedPrice": 80.00
   },
   {
     "Id": 7,
     "Image": "https://vouponlive.blob.core.windows.net/products/1787/images/small_0_324adcfa-12d5-4d5a-be61-2bbfba297fc7.jpeg",
     "Name": "Ready Stock Shoes! New Running Casual Sports Shoes Men's/women's 5 Colors 9 Sizes New 2021 Kasut",
     "OrderDate": "2023-11-07T00:00:00",
-    "Price": 1.00,
-    "DiscountedPrice": 1.20
+    "Price": 1.20,
+    "DiscountedPrice": 1.00
   }
 ]
